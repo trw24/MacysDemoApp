@@ -1,0 +1,20 @@
+{
+	"product":
+	{
+		"id": 0,
+		"name": "Tahari ASL Beaded-Trim Skirt Suit",
+		"description": "Upgrade your office fashion in Tahari ASLs ravishing skirt suit featuring contrast trim and elegant beaded details.",
+		"image_full": "2185465_full",
+		"image_thumb": "2185465_thumb",
+		"regular_price": "320.00",
+		"sale_price": "159.99",
+		"color_array": 
+		[
+			"Navy/Cloud",
+			"Yellow/Brown",
+			"Moss Green/Silver"
+		]
+	}
+}
+
+

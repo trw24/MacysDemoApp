@@ -1,0 +1,20 @@
+{
+	"product":
+	{
+		"id": 0,
+		"name": "Tahari ASL Textured Jacket, Ruffle-Front Blouse & Pencil Skirt",
+		"description": "Sport a luxe look in Tahari ASLs chic suit separates featuring this chic lock-button jacket and matching pencil skirt!",
+		"image_full": "2127972_full",
+		"image_thumb": "2127972_thumb",
+		"regular_price": "254.00",
+		"sale_price": "201.98",
+		"color_array": 
+		[
+			"Teal",
+			"Green",
+			"Gray"
+		]
+	}
+}
+
+

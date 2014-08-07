@@ -1,0 +1,19 @@
+{
+	"product":
+	{
+		"id": 0,
+		"name": "Jones New York Devon Three Button Blazer & Pencil Skirt",
+		"description":   "Suit yourself in this exquisitely tailored skirt suit from Jones New York.",
+		"image_full":    "1161907_full",
+		"image_thumb":   "1161907_thumb",
+		"regular_price": "198.00",
+		"sale_price":    "157.98",
+		"color_array": 
+		[
+			"Light Black",
+			"Dark Black"
+		]
+	}
+}
+
+
