@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B4AA7F65-946E-418F-9938-34FE741A42F1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MacyDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>CE1E69D4-9594-4D3B-82BB-3AF9D8C9E1E5</key>
+		<string>https://github.com/trw24/MacysDemoApp.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MacyDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>CE1E69D4-9594-4D3B-82BB-3AF9D8C9E1E5</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/trw24/MacysDemoApp.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>CE1E69D4-9594-4D3B-82BB-3AF9D8C9E1E5</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>CE1E69D4-9594-4D3B-82BB-3AF9D8C9E1E5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MacysDemoApp</string>
+		</dict>
+	</array>
+</dict>
+</plist>
