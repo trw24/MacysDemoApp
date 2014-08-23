@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     // Activate Model as soon as possible
-    ProductModel * productModel = [ProductModel getProductModel];
+    ProductModel * productModel __attribute__((unused)) = [ProductModel getProductModel];
     [productModel copyAllRecordsFromDatabaseToDataModel];
 }
 

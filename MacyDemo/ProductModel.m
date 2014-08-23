@@ -688,58 +688,6 @@
 
 
 
--(void) createObjectManually:(int)fileNumber
-{
-    ProductObject * productObject = [[ProductObject alloc] init];
-    
-    switch (fileNumber)
-    {
-        case (JSON_OBJECT_1):
-            productObject.id = [NSNumber numberWithInt:1];
-            productObject.name = @"Jones New York Devon Three Button Blazer & Pencil Skirt";
-            productObject.description = @"Suit yourself in this exquisitely tailored skirt suit from Jones New York.";
-            productObject.imageFull = @"1161907_full";
-            productObject.imageThumb = @"1161907_thumb";
-            productObject.regularPrice = @"198.00";
-            productObject.salePrice = @"157.98";
-            // productObject.colorArray = [NSArray arrayWithObjects: nil];
-            productObject.colorArray = [NSArray arrayWithObjects:@"Light Black", @"Dark Black", nil];
-            break;
-            
-        case (JSON_OBJECT_2):
-            productObject.id = [NSNumber numberWithInt:2];
-            productObject.name = @"Tahari ASL Textured Crepe Skirt Suit";
-            productObject.description = @"Command attention in Tahari by ASLs ravishing short-sleeve skirt suit featuring sleek button details for modern style.";
-            productObject.imageFull = @"2116932_full";
-            productObject.imageThumb = @"2116932_thumb";
-            productObject.regularPrice = @"280.00";
-            productObject.salePrice = @"129.99";
-            productObject.colorArray = [NSArray arrayWithObjects:@"Light Red", nil];
-            break;
-            
-        case (JSON_OBJECT_3):
-            productObject.id = [NSNumber numberWithInt:3];
-            productObject.name = @"Tahari ASL Textured Jacket, Ruffle-Front Blouse & Pencil Skirt";
-            productObject.description = @"Sport a luxe look in Tahari ASLs chic suit separates featuring this chic lock-button jacket and matching pencil skirt!";
-            productObject.imageFull = @"2127972_full";
-            productObject.imageThumb = @"2127972_thumb";
-            productObject.regularPrice = @"254.00";
-            productObject.salePrice = @"201.98";
-            productObject.colorArray = [NSArray arrayWithObjects:@"Teal", @"Blue", nil];
-            break;
-            
-        default:
-            NSLog(@"Ooops... Messed up");
-            break;
-    }
-
-    // Need to call ADD method to correctly handle ProductId
-    [self addObjectToModel:productObject];
-
-    return;
-}
-
-
 @end
 
 

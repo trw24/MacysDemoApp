@@ -30,8 +30,6 @@
 -(ProductObject *) getObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 -(void) describeModel;
-
--(void) createObjectManually:(int)fileNumber;
 -(void) createObjectFromJSONOFile:(int)fileNumber;
 
 -(void) setCurrentProductObject:(ProductObject *)newObject;
