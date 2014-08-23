@@ -424,18 +424,19 @@
 //  Class Method(s)
 + (ProductModel *)getProductModel
 {
-    static ProductModel * _ProductModel;
-    
-    if ( ! _ProductModel)
-    {
-        _ProductModel = [[ProductModel alloc] init];
-        _ProductModel.mutableArray = [[NSMutableArray alloc] init];
-        _ProductModel.currentlySelectedProductObject = nil;
-        _ProductModel.nextAvailableProductId = [NSNumber numberWithInt:PRODUCT_ID_STARTING_NUMBER];
+    static ProductModel * productModel;
+    static dispatch_once_t  dispatchOncePredicate;
 
+    dispatch_once(&dispatchOncePredicate, ^{
+
+        productModel = [[ProductModel alloc] init];
+        productModel.mutableArray = [[NSMutableArray alloc] init];
+        productModel.currentlySelectedProductObject = nil;
+        productModel.nextAvailableProductId = [NSNumber numberWithInt:PRODUCT_ID_STARTING_NUMBER];
+        
         NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
         NSString * userDefaultsString = [userDefaults valueForKey:KEY_FOR_USER_DEFAULTS];
-
+        
         if (userDefaultsString == nil)
         {
             // NSLog(@"userDefaultsString == nil");
@@ -443,7 +444,7 @@
         
         if ((userDefaultsString != nil) && ([userDefaultsString intValue] > PRODUCT_ID_STARTING_NUMBER))
         {
-            _ProductModel.nextAvailableProductId = [NSNumber numberWithInt:[userDefaultsString intValue]];
+            productModel.nextAvailableProductId = [NSNumber numberWithInt:[userDefaultsString intValue]];
         }
         
         //
@@ -452,21 +453,21 @@
         
         NSFileManager * fileManager = [NSFileManager defaultManager];
         
-        _ProductModel.documentDirectoryURL = (NSURL *)[[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        _ProductModel.databasePath = [[_ProductModel.documentDirectoryURL path] stringByAppendingPathComponent:SQLLITE_DATABASE_FILE_NAME];
-        _ProductModel.productDB = nil;
-
+        productModel.documentDirectoryURL = (NSURL *)[[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        productModel.databasePath = [[productModel.documentDirectoryURL path] stringByAppendingPathComponent:SQLLITE_DATABASE_FILE_NAME];
+        productModel.productDB = nil;
+        
         sqlite3 * localProductDB;
-
-        if ([fileManager fileExistsAtPath:_ProductModel.databasePath] == NO)
+        
+        if ([fileManager fileExistsAtPath:productModel.databasePath] == NO)
         {
             // NSLog(@"Database does NOT exist");
             
-            const char *dbpath = [_ProductModel.databasePath UTF8String];
+            const char *dbpath = [productModel.databasePath UTF8String];
             
             if (sqlite3_open(dbpath, &localProductDB) == SQLITE_OK)
             {
-                _ProductModel.productDB = localProductDB;
+                productModel.productDB = localProductDB;
                 char *errorMessage;
                 NSArray *sqlStatementArray;
                 NSString *sqlStatementString;
@@ -489,8 +490,8 @@
                 sql_stmt = [sqlStatementString UTF8String];
                 
                 // NSLog(@"Database creation string = %@", sqlStatementString);
-                                     
-                if (sqlite3_exec(_ProductModel.productDB, sql_stmt, NULL, NULL, &errorMessage) != SQLITE_OK)
+                
+                if (sqlite3_exec(productModel.productDB, sql_stmt, NULL, NULL, &errorMessage) != SQLITE_OK)
                 {
                     NSLog(@"Failed to create product_table");
                 }
@@ -500,7 +501,7 @@
                     // NSLog(@"Database and product_table Created Successfully");
                 }
                 
-                sqlite3_close(_ProductModel.productDB);
+                sqlite3_close(productModel.productDB);
                 
             }
             else
@@ -513,10 +514,9 @@
             // No need to report status message every time
             // NSLog(@"SQL: Database already exists");
         }
-
-    }
+    });
     
-    return (_ProductModel);
+    return productModel;
 }
 
 
