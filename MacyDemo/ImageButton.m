@@ -11,7 +11,11 @@
 
 @implementation ImageButton
 
+//
 // Nothing needed here
+//
+// UIButton is subclassed so can set Background Image to item thumbnail image
+//
 
 @end
 

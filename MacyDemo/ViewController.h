@@ -12,6 +12,10 @@
 
 
 @interface ViewController : UIViewController
+
+// Default ViewController
+// No customization needed
+
 @end
 
 

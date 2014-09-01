@@ -42,6 +42,8 @@
     //
     // Returns number of records in database
     //
+    // Returning type "int" because SQLite returns type "int"
+    //
     NSFileManager *fileManager = [NSFileManager defaultManager];
     const char *dbpath = [self.databasePath UTF8String];
     sqlite3 * localProductDB;
@@ -212,7 +214,7 @@
                     newObject = [[ProductObject alloc] init];
                     
                     // Fill it up with values returned from the database
-                    newObject.id            = [NSNumber numberWithInt:(int)sqlite3_column_int(sqlResult, 0)];
+                    newObject.id            = [NSNumber numberWithInteger:(NSInteger)sqlite3_column_int(sqlResult, 0)];
                     newObject.name          = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(sqlResult, 1)];
                     newObject.description   = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(sqlResult, 2)];
                     newObject.imageThumb    = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(sqlResult, 3)];
@@ -380,12 +382,12 @@
     // If, newObject.id == 0, then this creates new record and does Insert (and generate new id)
     // If, newObject.id != 0, then this is Update for an existing record
     //
-    if ([newObject.id integerValue] == 0)
+    if ([newObject.id intValue] == 0)
     {
         // Case where adding new object to model
         newObject.id = self.nextAvailableProductId;
         [self.mutableArray addObject:newObject];
-        self.nextAvailableProductId = [NSNumber numberWithInt:(1 + (int)[self.nextAvailableProductId integerValue])];
+        self.nextAvailableProductId = [NSNumber numberWithInteger:(1 + (NSInteger)[self.nextAvailableProductId integerValue])];
         
         // save new value in UserDefaults
         NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
@@ -399,7 +401,7 @@
     else
     {
         // Case where record already exists.  So, do Update
-        int numberOfRecords = (int)[self.mutableArray count];
+        NSInteger numberOfRecords = (NSInteger)[self.mutableArray count];
         int i = 0;
         ProductObject * tempProduct;
         
@@ -432,7 +434,7 @@
         productModel = [[ProductModel alloc] init];
         productModel.mutableArray = [[NSMutableArray alloc] init];
         productModel.currentlySelectedProductObject = nil;
-        productModel.nextAvailableProductId = [NSNumber numberWithInt:PRODUCT_ID_STARTING_NUMBER];
+        productModel.nextAvailableProductId = [NSNumber numberWithInteger:PRODUCT_ID_STARTING_NUMBER];
         
         NSUserDefaults * userDefaults = [NSUserDefaults standardUserDefaults];
         NSString * userDefaultsString = [userDefaults valueForKey:KEY_FOR_USER_DEFAULTS];
@@ -444,7 +446,7 @@
         
         if ((userDefaultsString != nil) && ([userDefaultsString intValue] > PRODUCT_ID_STARTING_NUMBER))
         {
-            productModel.nextAvailableProductId = [NSNumber numberWithInt:[userDefaultsString intValue]];
+            productModel.nextAvailableProductId = [NSNumber numberWithInteger:[userDefaultsString  integerValue]];
         }
         
         //
@@ -543,7 +545,7 @@
 -(void) describeModel
 {
     ProductObject * productObject;
-    unsigned long size = [self.mutableArray count];
+    NSInteger size = [self.mutableArray count];
     if (size == 0)
     {
         NSLog(@"Data Model is empty");
@@ -552,7 +554,7 @@
     else
     {
         NSLog(@"============================");
-        for (int i=0; i<size; i++)
+        for (NSInteger i=0; i<size; i++)
         {
             productObject = [self.mutableArray objectAtIndex:i];
             NSLog(@"[%d] %ld %@ %@",
@@ -572,7 +574,7 @@
             NSLog(@"currentProductObject.id = %d", [self.currentlySelectedProductObject.id intValue]);
         }
         NSLog(@"nextAvailableProductId = %ld", (long)[self.nextAvailableProductId integerValue]);
-        NSLog(@"Shared Data Model contains %d Objects", (int)[self.mutableArray count]);
+        NSLog(@"Shared Data Model contains %ld Objects", (long)[self.mutableArray count]);
         NSLog(@"Database ProductTable contains %d Records", [self numberOfRecordsInDatabase]);
         
         NSLog(@"----------------------------");
@@ -581,12 +583,10 @@
 }
 
 
-- (void) doNothing {}
 
-
-- (int) getNumberOfObjectsInModel
+- (NSInteger) getNumberOfObjectsInModel
 {
-    return ((int)[self.mutableArray count]);
+    return ([self.mutableArray count]);
 }
 
 
@@ -616,8 +616,8 @@
     else
     {
         // Case where record already exists.  So, find it and remove it
-        int numberOfRecords = (int)[self.mutableArray count];
-        int i = 0;
+        NSInteger numberOfRecords = (NSInteger)[self.mutableArray count];
+        NSInteger i = 0;
         ProductObject * tempProduct;
         
         while (i<numberOfRecords)
@@ -640,13 +640,13 @@
 #define BACKGROUND_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 
--(void) createObjectFromJSONOFile:(int)fileNumber
+-(void) createObjectFromJSONOFile:(NSInteger)fileNumber
 {
 
     dispatch_async(BACKGROUND_QUEUE, ^{
         
         // Retrieve data in background thread
-        NSString * fileName = [NSString stringWithFormat:@"%@%d", BASE_JSON_FILE_NAME, fileNumber];
+        NSString * fileName = [NSString stringWithFormat:@"%@%ld", BASE_JSON_FILE_NAME, (long)fileNumber];
         NSString * filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:BASE_JSON_FILE_EXTENSION];
         
         NSData * fileData = [NSData dataWithContentsOfFile:filePath];
@@ -669,9 +669,9 @@
         NSArray * jsonColorArray = [productDictionary objectForKey:@"color_array"];
         NSMutableArray * mutableColorArray = [[NSMutableArray alloc] init];
         
-        int numberOfColors = (int)[jsonColorArray count];
+        NSInteger numberOfColors = [jsonColorArray count];
         
-        for (int i=0; i<numberOfColors; i++)
+        for (NSInteger i=0; i<numberOfColors; i++)
         {
             [mutableColorArray addObject:[jsonColorArray objectAtIndex:i]];
         }

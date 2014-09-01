@@ -39,38 +39,31 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
 
-    // SingleTap ==> Zoom In == Pinch-Out
-    // DoubleTap ==> Zoom Out == Pinch-In
-    
-    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    // DoubleTap Gesture will Toggle the Zoom
     
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap:)];
     
-    [singleTapGesture setNumberOfTapsRequired:(NSInteger)1];
     [doubleTapGesture setNumberOfTapsRequired:(NSInteger)2];
-    
-    [singleTapGesture requireGestureRecognizerToFail:doubleTapGesture];
+    [self.view addGestureRecognizer:doubleTapGesture];
     
     [self.imageView setUserInteractionEnabled:YES];
     [self.scrollView setUserInteractionEnabled:YES];
-
-    [self.view addGestureRecognizer:singleTapGesture];
-    [self.view addGestureRecognizer:doubleTapGesture];
     
-}
-
-
--(void) handleSingleTap:(UIGestureRecognizer *)gesture
-{
-    // SingleTap ==> Zoom In == Pinch-Out
-    [self.scrollView setZoomScale:[self.scrollView maximumZoomScale] animated:YES];
 }
 
 
 -(void) handleDoubleTap:(UIGestureRecognizer *)gesture
 {
-    // DoubleTap ==> Zoom Out == Pinch-In
-    [self.scrollView setZoomScale:[self.scrollView minimumZoomScale] animated:YES];
+    // DoubleTap: Toggle the Zoom
+    
+    if (self.scrollView.zoomScale == self.scrollView.minimumZoomScale)
+    {
+        [self.scrollView setZoomScale:[self.scrollView maximumZoomScale] animated:YES];
+    }
+    else
+    {
+        [self.scrollView setZoomScale:[self.scrollView minimumZoomScale] animated:YES];
+    }
 }
 
 
@@ -91,7 +84,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-
     
     ProductModel * productModel = [ProductModel getProductModel];
     ProductObject * productObject = [productModel getCurrentProductObject];
@@ -100,7 +92,7 @@
     
     self.scrollView.minimumZoomScale = 0.5;
     self.scrollView.maximumZoomScale = 4.0;
-    self.scrollView.zoomScale = 0.5;
+    self.scrollView.zoomScale = self.scrollView.minimumZoomScale;   // start zoomed all the way "out"
     self.scrollView.clipsToBounds = YES;
     self.scrollView.center = CGPointMake((self.view.frame.size.width/2), (self.view.frame.size.height/2));
 

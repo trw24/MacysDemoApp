@@ -21,16 +21,15 @@
 //  Instance Methods
 -(void) copyAllRecordsFromDatabaseToDataModel;              // Database "Select All"
 
--(void) doNothing;
--(int)  getNumberOfObjectsInModel;
--(void) addObjectToModel:(ProductObject *)newObject;        // This method handles both "Insert" and "Update"
+-(NSInteger)    getNumberOfObjectsInModel;
+-(void)         addObjectToModel:(ProductObject *)newObject;        // This method handles both "Insert" and "Update"
                                                             // If "id == 0", do Insert
                                                             // If "id != 0", then do Update
 
 -(ProductObject *) getObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 -(void) describeModel;
--(void) createObjectFromJSONOFile:(int)fileNumber;
+-(void) createObjectFromJSONOFile:(NSInteger)fileNumber;
 
 -(void) setCurrentProductObject:(ProductObject *)newObject;
 -(void) unsetCurrentProductObject;
