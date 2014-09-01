@@ -91,7 +91,7 @@
     self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:productObject.imageFull]];
     
     self.scrollView.minimumZoomScale = 0.5;
-    self.scrollView.maximumZoomScale = 4.0;
+    self.scrollView.maximumZoomScale = 2.0;
     self.scrollView.zoomScale = self.scrollView.minimumZoomScale;   // start zoomed all the way "out"
     self.scrollView.clipsToBounds = YES;
     self.scrollView.center = CGPointMake((self.view.frame.size.width/2), (self.view.frame.size.height/2));
