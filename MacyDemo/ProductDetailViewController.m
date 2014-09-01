@@ -8,14 +8,13 @@
 
 #import "ProductDetailViewController.h"
 
+#define MAGNIFYING_GLASS_FILE_NAME @"magnifyingGlass"
 
 @interface ProductDetailViewController ()
 @end
 
 
-
 @implementation ProductDetailViewController
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -35,12 +34,44 @@
     
     UIImage * productImage = [UIImage imageNamed:productObject.imageThumb];
     
-    [self.imageButton setBackgroundImage:productImage forState:UIControlStateNormal];
-    [self.imageButton setBackgroundImage:productImage forState:UIControlStateSelected];
-    [self.imageButton setBackgroundImage:productImage forState:UIControlStateHighlighted];
-
-    // [self.imageButton setImage:productImage forState:UIControlStateNormal];
-
+    //  ==================================================
+    //
+    //  These lines inserted to add magnifying glass to thumbnail image
+    //
+    
+    CGSize productImageSize = productImage.size;
+    
+    UIGraphicsBeginImageContext(productImageSize); // Create/begin virtual image
+    
+    CGRect productImageRect = CGRectMake(0, 0, productImageSize.width, productImageSize.height);
+    
+    [productImage drawInRect:productImageRect];
+    
+    int magWidth = 30;
+    int magHeight = 30;
+    
+    UIImage * magnifyingGlassImage = [UIImage imageNamed:MAGNIFYING_GLASS_FILE_NAME];
+    
+    CGRect magnifyingGlassRect = CGRectMake((productImageSize.width - magWidth), (productImageSize.height - magHeight), magWidth, magHeight);
+    
+    [magnifyingGlassImage drawInRect:magnifyingGlassRect];
+    
+    UIImage *modifiedProductImage = UIGraphicsGetImageFromCurrentImageContext();    // Capture the virtual image
+    
+    [self.imageButton setBackgroundImage:modifiedProductImage forState:UIControlStateNormal];
+    [self.imageButton setBackgroundImage:modifiedProductImage forState:UIControlStateSelected];
+    [self.imageButton setBackgroundImage:modifiedProductImage forState:UIControlStateHighlighted];
+    
+    //  ==================================================
+    
+    //
+    //    [self.imageButton setBackgroundImage:productImage forState:UIControlStateNormal];
+    //    [self.imageButton setBackgroundImage:productImage forState:UIControlStateSelected];
+    //    [self.imageButton setBackgroundImage:productImage forState:UIControlStateHighlighted];
+    //
+    
+    //  ==================================================
+    
     // CALayer * layer = [self.buttonThumbImage layer];
     // [layer setMasksToBounds:YES];
     // [layer setCornerRadius:0.01f];
