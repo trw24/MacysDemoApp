@@ -37,6 +37,17 @@
 
 @implementation ProductModel
 
+
+-(BOOL) modelAndDatabaseHaveSameNumberOfRecords
+{
+    int numberOfRecordsInDatabase = [self numberOfRecordsInDatabase];
+    int numberOfObjectsInSharedModel = [self.mutableArray count];
+    
+    if (numberOfRecordsInDatabase == numberOfObjectsInSharedModel)      return TRUE;
+    else                                                                return FALSE;
+}
+
+
 -(int) numberOfRecordsInDatabase
 {
     //
@@ -96,6 +107,57 @@
     return result;
 }
 
+
+-(void) clearModelAndDatabase
+{
+    //
+    // Delete all objects from both the SharedModel and records in the database.
+    //
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    const char *dbpath = [self.databasePath UTF8String];
+    sqlite3 * localProductDB;
+    const char *sql_stmt;
+    char *errorMessage;
+    
+    if ([fileManager fileExistsAtPath:self.databasePath] == YES)
+    {
+        if (sqlite3_open(dbpath, &localProductDB) == SQLITE_OK)
+        {
+            self.productDB = localProductDB;
+            
+            NSString *sqlStatementString;
+            
+            sqlStatementString = [NSString stringWithFormat:
+                                  @"DELETE FROM product_table;" // removes all records in table
+                                  ];
+            
+            sql_stmt = [sqlStatementString UTF8String];
+            
+            // NSLog(@"Database DELETE string = %@", sqlStatementString);
+            
+            if (sqlite3_exec(localProductDB, sql_stmt, NULL, NULL, &errorMessage) != SQLITE_OK)
+            {
+                NSLog(@"Failed to Delete record");
+            }
+            else
+            {
+                // By clearing the shared model inside the code block,
+                // we will only it IF able to access the database.
+                
+                self.mutableArray = [[NSMutableArray alloc] init];
+                self.currentlySelectedProductObject = nil;
+                
+                // NSLog(@"All Records in database and Objects in shared model Deleted successfully");
+            }
+            sqlite3_close(localProductDB);
+        }
+    }
+    else
+    {
+        NSLog(@"SQL: Error:  database not available: %@", self.databasePath);
+    }
+}
 
 
 
@@ -637,7 +699,7 @@
 
 #define BASE_JSON_FILE_NAME  @"product_"
 #define BASE_JSON_FILE_EXTENSION @"json"
-#define BACKGROUND_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define BACKGROUND_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT,0)
 
 
 -(void) createObjectFromJSONFile:(NSInteger)fileNumber
@@ -679,8 +741,8 @@
         productObject.colorArray = mutableColorArray;
         
         // Need to call ADD method to correctly handle ProductId
-        // If product_id == 0, it will create new object/record
-        // If product_id != 0, it will do Update on existing record
+        // If product_id == 0, it will create new object in model and record in database
+        // If product_id != 0, it will do Update on existing object and record
         [self addObjectToModel:productObject];
     });
     

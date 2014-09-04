@@ -25,6 +25,8 @@
 -(void)         addObjectToModel:(ProductObject *)newObject;        // This method handles both "Insert" and "Update"
                                                             // If "id == 0", do Insert
                                                             // If "id != 0", then do Update
+-(void)         clearModelAndDatabase;
+-(BOOL)         modelAndDatabaseHaveSameNumberOfRecords;
 
 -(ProductObject *) getObjectAtIndexPath:(NSIndexPath *)indexPath;
 
