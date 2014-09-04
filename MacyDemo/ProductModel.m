@@ -640,7 +640,7 @@
 #define BACKGROUND_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 
 
--(void) createObjectFromJSONOFile:(NSInteger)fileNumber
+-(void) createObjectFromJSONFile:(NSInteger)fileNumber
 {
 
     dispatch_async(BACKGROUND_QUEUE, ^{

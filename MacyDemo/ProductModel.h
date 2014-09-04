@@ -29,7 +29,7 @@
 -(ProductObject *) getObjectAtIndexPath:(NSIndexPath *)indexPath;
 
 -(void) describeModel;
--(void) createObjectFromJSONOFile:(NSInteger)fileNumber;
+-(void) createObjectFromJSONFile:(NSInteger)fileNumber;
 
 -(void) setCurrentProductObject:(ProductObject *)newObject;
 -(void) unsetCurrentProductObject;

@@ -18,31 +18,31 @@
 - (IBAction)buttonCreateProduct_1:(UIButton *)sender {
 
     ProductModel * productModel = [ProductModel getProductModel];
-    [productModel createObjectFromJSONOFile:JSON_OBJECT_1];
+    [productModel createObjectFromJSONFile:JSON_OBJECT_1];
 }
 
 - (IBAction)buttonCreateProduct_2:(UIButton *)sender {
 
     ProductModel * productModel = [ProductModel getProductModel];
-    [productModel createObjectFromJSONOFile:JSON_OBJECT_2];
+    [productModel createObjectFromJSONFile:JSON_OBJECT_2];
 }
 
 - (IBAction)buttonCreateProduct_3:(UIButton *)sender {
 
     ProductModel * productModel = [ProductModel getProductModel];
-    [productModel createObjectFromJSONOFile:JSON_OBJECT_3];
+    [productModel createObjectFromJSONFile:JSON_OBJECT_3];
 }
 
 - (IBAction)buttonCreateProduct_4:(UIButton *)sender {
     
     ProductModel * productModel = [ProductModel getProductModel];
-    [productModel createObjectFromJSONOFile:JSON_OBJECT_4];
+    [productModel createObjectFromJSONFile:JSON_OBJECT_4];
 }
 
 - (IBAction)buttonCreateProduct_5:(UIButton *)sender {
 
     ProductModel * productModel = [ProductModel getProductModel];
-    [productModel createObjectFromJSONOFile:JSON_OBJECT_5];
+    [productModel createObjectFromJSONFile:JSON_OBJECT_5];
 }
 
 - (IBAction)describeModel:(UIButton *)sender {
