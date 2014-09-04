@@ -38,6 +38,21 @@
                ReferencedContainer = "container:MacyDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "052D498E19B8105100930811"
+               BuildableName = "Macy&apos;s Tests.xctest"
+               BlueprintName = "Macy&apos;s Tests"
+               ReferencedContainer = "container:MacyDemo.xcodeproj">
+            </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "Macy_s_Tests">
+               </Test>
+            </SkippedTests>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

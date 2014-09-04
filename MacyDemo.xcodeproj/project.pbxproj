@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052D499019B8105200930811 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FD4C4D1984984C00D128C5 /* XCTest.framework */; };
+		052D499119B8105200930811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FD4C2E1984984C00D128C5 /* Foundation.framework */; };
+		052D499219B8105200930811 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FD4C321984984C00D128C5 /* UIKit.framework */; };
+		052D499819B8105200930811 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 052D499619B8105200930811 /* InfoPlist.strings */; };
+		052D499A19B8105200930811 /* Macy_s_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 052D499919B8105200930811 /* Macy_s_Tests.m */; };
+		052D49A219B8130B00930811 /* modelAndDatabaseTestCases.m in Sources */ = {isa = PBXBuildFile; fileRef = 052D49A119B8130B00930811 /* modelAndDatabaseTestCases.m */; };
 		05394FF41985CF780090EC47 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05394FF31985CF780090EC47 /* ImageDetailViewController.m */; };
 		05394FF71985E3820090EC47 /* ImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 05394FF61985E3820090EC47 /* ImageButton.m */; };
 		05394FF9198622B30090EC47 /* product_1.json in Resources */ = {isa = PBXBuildFile; fileRef = 05394FF8198622B30090EC47 /* product_1.json */; };
@@ -36,7 +42,23 @@
 		05FD4C771984C6CF00D128C5 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FD4C761984C6CF00D128C5 /* ProductDetailViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		052D499C19B8105200930811 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05FD4C231984984C00D128C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05FD4C2A1984984C00D128C5;
+			remoteInfo = "Macy's";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		052D498F19B8105100930811 /* Macy's Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Macy's Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		052D499519B8105200930811 /* Macy's Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Macy's Tests-Info.plist"; sourceTree = "<group>"; };
+		052D499719B8105200930811 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		052D499919B8105200930811 /* Macy_s_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Macy_s_Tests.m; sourceTree = "<group>"; };
+		052D499B19B8105200930811 /* Macy's Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Macy's Tests-Prefix.pch"; sourceTree = "<group>"; };
+		052D49A119B8130B00930811 /* modelAndDatabaseTestCases.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = modelAndDatabaseTestCases.m; sourceTree = "<group>"; };
 		05394FF21985CF780090EC47 /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
 		05394FF31985CF780090EC47 /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
 		05394FF51985E3820090EC47 /* ImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageButton.h; sourceTree = "<group>"; };
@@ -88,6 +110,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		052D498C19B8105100930811 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				052D499019B8105200930811 /* XCTest.framework in Frameworks */,
+				052D499219B8105200930811 /* UIKit.framework in Frameworks */,
+				052D499119B8105200930811 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05FD4C281984984C00D128C5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,6 +179,26 @@
 			name = DataModel;
 			sourceTree = "<group>";
 		};
+		052D499319B8105200930811 /* Macy's Tests */ = {
+			isa = PBXGroup;
+			children = (
+				052D499919B8105200930811 /* Macy_s_Tests.m */,
+				052D49A119B8130B00930811 /* modelAndDatabaseTestCases.m */,
+				052D499419B8105200930811 /* Supporting Files */,
+			);
+			path = "Macy's Tests";
+			sourceTree = "<group>";
+		};
+		052D499419B8105200930811 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				052D499519B8105200930811 /* Macy's Tests-Info.plist */,
+				052D499619B8105200930811 /* InfoPlist.strings */,
+				052D499B19B8105200930811 /* Macy's Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		05928132198A2B2900E15D47 /* CutomUIButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				05FD4C341984984C00D128C5 /* MacyDemo */,
+				052D499319B8105200930811 /* Macy's Tests */,
 				05FD4C531984984C00D128C5 /* MacyDemoTests */,
 				05FD4C2D1984984C00D128C5 /* Frameworks */,
 				05FD4C2C1984984C00D128C5 /* Products */,
@@ -182,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				05FD4C2B1984984C00D128C5 /* Macy's.app */,
+				052D498F19B8105100930811 /* Macy's Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,6 +301,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		052D498E19B8105100930811 /* Macy's Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 052D49A019B8105200930811 /* Build configuration list for PBXNativeTarget "Macy's Tests" */;
+			buildPhases = (
+				052D498B19B8105100930811 /* Sources */,
+				052D498C19B8105100930811 /* Frameworks */,
+				052D498D19B8105100930811 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				052D499D19B8105200930811 /* PBXTargetDependency */,
+			);
+			name = "Macy's Tests";
+			productName = "Macy's Tests";
+			productReference = 052D498F19B8105100930811 /* Macy's Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		05FD4C2A1984984C00D128C5 /* Macy's */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05FD4C5D1984984C00D128C5 /* Build configuration list for PBXNativeTarget "Macy's" */;
@@ -272,6 +344,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Troy W";
+				TargetAttributes = {
+					052D498E19B8105100930811 = {
+						TestTargetID = 05FD4C2A1984984C00D128C5;
+					};
+				};
 			};
 			buildConfigurationList = 05FD4C261984984C00D128C5 /* Build configuration list for PBXProject "MacyDemo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -287,11 +364,20 @@
 			projectRoot = "";
 			targets = (
 				05FD4C2A1984984C00D128C5 /* Macy's */,
+				052D498E19B8105100930811 /* Macy's Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		052D498D19B8105100930811 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				052D499819B8105200930811 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05FD4C291984984C00D128C5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +396,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		052D498B19B8105100930811 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				052D49A219B8130B00930811 /* modelAndDatabaseTestCases.m in Sources */,
+				052D499A19B8105200930811 /* Macy_s_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		05FD4C271984984C00D128C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -334,7 +429,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		052D499D19B8105200930811 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05FD4C2A1984984C00D128C5 /* Macy's */;
+			targetProxy = 052D499C19B8105200930811 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		052D499619B8105200930811 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				052D499719B8105200930811 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		05FD4C371984984C00D128C5 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -362,6 +473,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		052D499E19B8105200930811 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Macy's.app/Macy's";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Macy's Tests/Macy's Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Macy's Tests/Macy's Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		052D499F19B8105200930811 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Macy's.app/Macy's";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Macy's Tests/Macy's Tests-Prefix.pch";
+				INFOPLIST_FILE = "Macy's Tests/Macy's Tests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		05FD4C5B1984984C00D128C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +618,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		052D49A019B8105200930811 /* Build configuration list for PBXNativeTarget "Macy's Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				052D499E19B8105200930811 /* Debug */,
+				052D499F19B8105200930811 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		05FD4C261984984C00D128C5 /* Build configuration list for PBXProject "MacyDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
