@@ -51,6 +51,12 @@
     [productModel describeModel];
 }
 
+- (IBAction)clearModelAndDatabase:(UIButton *)sender {
+    
+    ProductModel * productModel = [ProductModel getProductModel];
+    [productModel clearModelAndDatabase];
+}
+
 
 @end
 

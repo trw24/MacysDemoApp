@@ -745,10 +745,25 @@
                                     <action selector="buttonCreateProduct_5:" destination="BP6-cw-GpB" eventType="touchUpInside" id="YaE-0z-s21"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lt4-TD-Mfg">
+                                <rect key="frame" x="20" y="409" width="280" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="RPp-zm-kR2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Clear Model and Database">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearModelAndDatabase:" destination="BP6-cw-GpB" eventType="touchUpInside" id="Ec9-xj-ctw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oYf-7d-oJe" firstAttribute="top" secondItem="Z7l-Wj-29p" secondAttribute="bottom" constant="15" id="0Do-IG-nSO"/>
+                            <constraint firstItem="Lt4-TD-Mfg" firstAttribute="trailing" secondItem="oYf-7d-oJe" secondAttribute="trailing" id="2Fr-oo-anv"/>
                             <constraint firstItem="UK6-N0-UIt" firstAttribute="top" secondItem="4BV-Cf-QCE" secondAttribute="bottom" constant="15" id="5JL-VU-fla"/>
                             <constraint firstItem="8dQ-I8-x0e" firstAttribute="top" secondItem="7Ia-91-9D6" secondAttribute="bottom" constant="15" id="7ta-Bp-hCU"/>
                             <constraint firstItem="UK6-N0-UIt" firstAttribute="leading" secondItem="Z7l-Wj-29p" secondAttribute="leading" id="CBY-pe-vYw"/>
@@ -760,6 +775,8 @@
                             <constraint firstItem="UK6-N0-UIt" firstAttribute="leading" secondItem="4BV-Cf-QCE" secondAttribute="leading" id="clG-cG-sB6"/>
                             <constraint firstItem="Z7l-Wj-29p" firstAttribute="trailing" secondItem="oYf-7d-oJe" secondAttribute="trailing" id="e8g-Fk-iUP"/>
                             <constraint firstItem="8dQ-I8-x0e" firstAttribute="trailing" secondItem="7Ia-91-9D6" secondAttribute="trailing" id="en3-ea-cjB"/>
+                            <constraint firstItem="Lt4-TD-Mfg" firstAttribute="top" secondItem="oYf-7d-oJe" secondAttribute="bottom" constant="15" id="gzC-vI-fKC"/>
+                            <constraint firstItem="Lt4-TD-Mfg" firstAttribute="leading" secondItem="oYf-7d-oJe" secondAttribute="leading" id="iKA-ho-CLi"/>
                             <constraint firstItem="8dQ-I8-x0e" firstAttribute="trailing" secondItem="4BV-Cf-QCE" secondAttribute="trailing" id="jHa-RW-QNA"/>
                             <constraint firstItem="7Ia-91-9D6" firstAttribute="leading" secondItem="2TN-l9-UTk" secondAttribute="leading" constant="20" symbolic="YES" id="rln-BI-FbV"/>
                             <constraint firstItem="Z7l-Wj-29p" firstAttribute="top" secondItem="UK6-N0-UIt" secondAttribute="bottom" constant="15" id="sKN-xF-kjc"/>

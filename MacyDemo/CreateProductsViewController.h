@@ -22,6 +22,7 @@
 - (IBAction)buttonCreateProduct_5:(UIButton *)sender;
 
 - (IBAction)describeModel:(UIButton *)sender;
+- (IBAction)clearModelAndDatabase:(UIButton *)sender;
 
 
 @end
