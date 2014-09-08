@@ -22,9 +22,9 @@
 -(void) copyAllRecordsFromDatabaseToDataModel;              // Database "Select All"
 
 -(NSInteger)    getNumberOfObjectsInModel;
--(void)         addObjectToModel:(ProductObject *)newObject;        // This method handles both "Insert" and "Update"
-                                                            // If "id == 0", do Insert
-                                                            // If "id != 0", then do Update
+-(void)         addObjectToModel:(ProductObject *)newObject;    // This method handles both "Insert" and "Update"
+                                                                // If "id == 0", do Insert
+                                                                // If "id != 0", then do Update
 -(void)         clearModelAndDatabase;
 -(BOOL)         modelAndDatabaseHaveSameNumberOfRecords;
 
