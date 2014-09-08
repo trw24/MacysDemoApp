@@ -199,13 +199,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		05928132198A2B2900E15D47 /* CutomUIButton */ = {
+		05928132198A2B2900E15D47 /* CustomUIButton */ = {
 			isa = PBXGroup;
 			children = (
 				05394FF51985E3820090EC47 /* ImageButton.h */,
 				05394FF61985E3820090EC47 /* ImageButton.m */,
 			);
-			name = CutomUIButton;
+			name = CustomUIButton;
 			sourceTree = "<group>";
 		};
 		05EDA0671988B5010082A341 /* JSON_Files */ = {
@@ -259,7 +259,7 @@
 				05FD4C3E1984984C00D128C5 /* AppDelegate.m */,
 				05FD4C401984984C00D128C5 /* Main.storyboard */,
 				05FD4C461984984C00D128C5 /* Images.xcassets */,
-				05928132198A2B2900E15D47 /* CutomUIButton */,
+				05928132198A2B2900E15D47 /* CustomUIButton */,
 				05250A281988BCF000DE8D0E /* DataModel */,
 				05250A271988BCE400DE8D0E /* DataObject */,
 				05250A261988BCB900DE8D0E /* ViewControllers */,
